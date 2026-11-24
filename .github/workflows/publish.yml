@@ -1,0 +1,31 @@
+name: Publish APKs
+# Push APKs to the `incoming` branch (apks/HanAuto-v<ver>.apk, apks/HanThemes-<ver>.apk,
+# optional apks/<same-name>.txt notes). This turns each one into a GitHub release that the
+# in-car updaters read: Han Auto -> tag v<ver>, Han Themes -> tag themes-<ver>.
+on:
+  push:
+    branches: [incoming]
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: incoming
+      - name: Create releases
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          shopt -s nullglob
+          for f in apks/*.apk; do
+            n=$(basename "$f")
+            if [[ "$n" =~ ^HanAuto-v(.+)\.apk$ ]]; then tag="v${BASH_REMATCH[1]}"; title="Han Auto ${BASH_REMATCH[1]}";
+            elif [[ "$n" =~ ^HanThemes-(.+)\.apk$ ]]; then tag="themes-${BASH_REMATCH[1]}"; title="Han Themes ${BASH_REMATCH[1]}";
+            else echo "skip $n"; continue; fi
+            if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then echo "exists $tag"; continue; fi
+            notes="apks/${n%.apk}.txt"; [ -f "$notes" ] && body=$(cat "$notes") || body="$title"
+            gh release create "$tag" "$f" --repo "$GITHUB_REPOSITORY" --title "$title" --notes "$body" --target main
+            echo "published $tag"
+          done
