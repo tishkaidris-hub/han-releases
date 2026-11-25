@@ -1,5 +1,5 @@
 {
- "version": 4,
+ "version": 5,
  "note": "Han Auto voice commands. Add a command = add an entry here (no app update needed: the app also downloads the newest copy of this file from tishkaidris-hub/han-releases). 'car.kind': pending = waiting for BYD property ids from the fid catalog; nav, app, theme, shell = handled now.",
  "actions": [
   {
@@ -520,6 +520,19 @@
     "let's do karaoke",
     "open GeForce NOW",
     "فتح يوتيوب"
+   ],
+   "car": {
+    "kind": "page"
+   }
+  },
+  {
+   "id": "home_style",
+   "label": "Change the home screen style",
+   "value": "classic | scene | gold | future",
+   "examples": [
+    "make it black and gold",
+    "switch to the future style",
+    "show the photo style"
    ],
    "car": {
     "kind": "page"
