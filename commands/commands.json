@@ -1,50 +1,660 @@
 {
-  "version": 1,
-  "note": "Han Auto voice commands. Add a command = add an entry here (no app update needed: the app also downloads the newest copy of this file from tishkaidris-hub/han-releases). 'car.kind': pending = waiting for BYD property ids from the fid catalog; nav, app, theme, shell = handled now.",
-  "actions": [
-    {"id": "climate_set_temp", "label": "Set temperature", "value": "degrees C, 16-32", "examples": ["set it to 22", "خلي الحرارة ٢٢", "پلەی گەرمی بکە ٢٢"], "car": {"kind": "pending", "group": "ac"}},
-    {"id": "climate_warmer", "label": "Warmer", "examples": ["a bit warmer", "دفّيها شوية", "کەمێک گەرمتر"], "car": {"kind": "pending", "group": "ac"}},
-    {"id": "climate_cooler", "label": "Cooler", "examples": ["cooler please", "برّدها", "ساردتری بکە"], "car": {"kind": "pending", "group": "ac"}},
-    {"id": "ac_on", "label": "A/C on", "examples": ["turn on the AC", "شغل المكيف", "مەکینەی ساردکەرەوە هەڵبکە"], "car": {"kind": "pending", "group": "ac"}},
-    {"id": "ac_off", "label": "A/C off", "examples": ["AC off", "طفي المكيف"], "car": {"kind": "pending", "group": "ac"}},
-    {"id": "fan_up", "label": "Fan faster", "examples": ["more air"], "car": {"kind": "pending", "group": "ac"}},
-    {"id": "fan_down", "label": "Fan slower", "examples": ["less air"], "car": {"kind": "pending", "group": "ac"}},
-    {"id": "recirculate_on", "label": "Recirculate", "examples": ["it smells outside", "recirculate"], "car": {"kind": "pending", "group": "ac"}},
-    {"id": "fresh_air_on", "label": "Fresh air", "examples": ["it's stuffy", "fresh air"], "car": {"kind": "pending", "group": "ac"}},
-    {"id": "defrost_front", "label": "Front demist", "examples": ["the windscreen is foggy"], "car": {"kind": "pending", "group": "ac"}},
-    {"id": "defrost_rear", "label": "Rear demist", "examples": ["rear window is foggy"], "car": {"kind": "pending", "group": "ac"}},
-    {"id": "window_open", "label": "Open window", "targets": ["all", "driver", "passenger", "rear_left", "rear_right"], "examples": ["open the windows", "افتح الشبابيك", "پەنجەرەکان بکەرەوە"], "car": {"kind": "pending", "group": "bodywork"}},
-    {"id": "window_close", "label": "Close window", "targets": ["all", "driver", "passenger", "rear_left", "rear_right"], "examples": ["close the windows", "سد الشبابيك", "پەنجەرەکان دابخە"], "car": {"kind": "pending", "group": "bodywork"}},
-    {"id": "window_vent", "label": "Vent windows", "targets": ["all", "driver", "passenger", "rear_left", "rear_right"], "examples": ["crack the windows a little"], "car": {"kind": "pending", "group": "bodywork"}},
-    {"id": "sunroof_open", "label": "Open sunroof", "examples": ["open the sunroof", "افتح الفتحة"], "car": {"kind": "pending", "group": "bodywork"}},
-    {"id": "sunroof_close", "label": "Close sunroof", "examples": ["close the sunroof"], "car": {"kind": "pending", "group": "bodywork"}},
-    {"id": "sunshade_open", "label": "Open sunshade", "examples": ["open the shade"], "car": {"kind": "pending", "group": "bodywork"}},
-    {"id": "sunshade_close", "label": "Close sunshade", "examples": ["too bright", "سكر الستارة"], "car": {"kind": "pending", "group": "bodywork"}},
-    {"id": "trunk_open", "label": "Open trunk", "examples": ["open the trunk", "pop the boot", "افتح الصندوق", "سندووقەکە بکەرەوە"], "parked_only": true, "car": {"kind": "pending", "group": "bodywork"}},
-    {"id": "trunk_close", "label": "Close trunk", "examples": ["close the trunk"], "parked_only": true, "car": {"kind": "pending", "group": "bodywork"}},
-    {"id": "charge_port_open", "label": "Open charge port", "examples": ["open the charging flap"], "parked_only": true, "car": {"kind": "pending", "group": "charging"}},
-    {"id": "seat_heat_on", "label": "Seat heating on", "targets": ["driver", "passenger"], "value": "level 1-3, default 2", "examples": ["heat my seat", "سخن المقعد", "کورسییەکەم گەرم بکە"], "car": {"kind": "pending", "group": "seat"}},
-    {"id": "seat_heat_off", "label": "Seat heating off", "targets": ["driver", "passenger"], "examples": ["seat heating off"], "car": {"kind": "pending", "group": "seat"}},
-    {"id": "seat_vent_on", "label": "Seat cooling on", "targets": ["driver", "passenger"], "value": "level 1-3, default 2", "examples": ["cool my seat", "my back is sweating"], "car": {"kind": "pending", "group": "seat"}},
-    {"id": "seat_vent_off", "label": "Seat cooling off", "targets": ["driver", "passenger"], "examples": ["seat cooling off"], "car": {"kind": "pending", "group": "seat"}},
-    {"id": "lock", "label": "Lock", "examples": ["lock the car", "قفل السيارة"], "car": {"kind": "pending", "group": "lock"}},
-    {"id": "unlock", "label": "Unlock", "examples": ["unlock"], "parked_only": true, "car": {"kind": "pending", "group": "lock"}},
-    {"id": "mirrors_fold", "label": "Fold mirrors", "examples": ["fold the mirrors"], "parked_only": true, "car": {"kind": "pending", "group": "bodywork"}},
-    {"id": "mirrors_unfold", "label": "Unfold mirrors", "examples": ["unfold the mirrors"], "car": {"kind": "pending", "group": "bodywork"}},
-    {"id": "drive_mode", "label": "Drive mode", "value": "eco | normal | sport", "examples": ["sport mode", "eco mode"], "car": {"kind": "pending", "group": "drive"}},
-    {"id": "navigate_home", "label": "Navigate home", "examples": ["take me home", "ودّيني البيت", "بمبە بۆ ماڵەوە"], "car": {"kind": "nav", "to": "home"}},
-    {"id": "navigate_to", "label": "Navigate to a place", "value": "place name", "examples": ["take me to Family Mall", "navigate to the citadel"], "car": {"kind": "nav"}},
-    {"id": "play_music", "label": "Play music", "examples": ["play some music", "شغل أغاني"], "car": {"kind": "app", "pkg": "com.spotify.music"}},
-    {"id": "cluster_scene", "label": "Change cluster scene", "value": "citadel | dukan | zagros | city | dials", "examples": ["put the citadel on the dashboard"], "car": {"kind": "theme"}},
-    {"id": "screen_dim", "label": "Dim screen", "examples": ["the screen is too bright"], "car": {"kind": "pending", "group": "display"}},
-    {"id": "screen_bright", "label": "Brighter screen", "examples": ["I can't see the screen"], "car": {"kind": "pending", "group": "display"}}
-  ],
-  "feelings": [
-    {"say": "I feel cold / I'm freezing / بردان / سەرمامە", "do": [{"action": "seat_heat_on", "target": "driver"}, {"action": "climate_warmer"}]},
-    {"say": "I'm hot / boiling / حرّان / گەرمامە", "do": [{"action": "seat_vent_on", "target": "driver"}, {"action": "climate_cooler"}]},
-    {"say": "It's stuffy / I need air", "do": [{"action": "fresh_air_on"}, {"action": "window_vent", "target": "all"}]},
-    {"say": "Windows are foggy", "do": [{"action": "defrost_front"}, {"action": "defrost_rear"}]},
-    {"say": "I'm leaving the car", "do": [{"action": "window_close", "target": "all"}, {"action": "sunroof_close"}, {"action": "lock"}]},
-    {"say": "Dust storm outside / عجاج", "do": [{"action": "window_close", "target": "all"}, {"action": "sunroof_close"}, {"action": "recirculate_on"}]}
-  ]
+ "version": 2,
+ "note": "Han Auto voice commands. Add a command = add an entry here (no app update needed: the app also downloads the newest copy of this file from tishkaidris-hub/han-releases). 'car.kind': pending = waiting for BYD property ids from the fid catalog; nav, app, theme, shell = handled now.",
+ "actions": [
+  {
+   "id": "climate_set_temp",
+   "label": "Set temperature",
+   "value": "degrees C, 16-32",
+   "examples": [
+    "set it to 22",
+    "خلي الحرارة ٢٢",
+    "پلەی گەرمی بکە ٢٢"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "ac"
+   }
+  },
+  {
+   "id": "climate_warmer",
+   "label": "Warmer",
+   "examples": [
+    "a bit warmer",
+    "دفّيها شوية",
+    "کەمێک گەرمتر"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "ac"
+   }
+  },
+  {
+   "id": "climate_cooler",
+   "label": "Cooler",
+   "examples": [
+    "cooler please",
+    "برّدها",
+    "ساردتری بکە"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "ac"
+   }
+  },
+  {
+   "id": "ac_on",
+   "label": "A/C on",
+   "examples": [
+    "turn on the AC",
+    "شغل المكيف",
+    "مەکینەی ساردکەرەوە هەڵبکە"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "ac"
+   }
+  },
+  {
+   "id": "ac_off",
+   "label": "A/C off",
+   "examples": [
+    "AC off",
+    "طفي المكيف"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "ac"
+   }
+  },
+  {
+   "id": "fan_up",
+   "label": "Fan faster",
+   "examples": [
+    "more air"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "ac"
+   }
+  },
+  {
+   "id": "fan_down",
+   "label": "Fan slower",
+   "examples": [
+    "less air"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "ac"
+   }
+  },
+  {
+   "id": "recirculate_on",
+   "label": "Recirculate",
+   "examples": [
+    "it smells outside",
+    "recirculate"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "ac"
+   }
+  },
+  {
+   "id": "fresh_air_on",
+   "label": "Fresh air",
+   "examples": [
+    "it's stuffy",
+    "fresh air"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "ac"
+   }
+  },
+  {
+   "id": "defrost_front",
+   "label": "Front demist",
+   "examples": [
+    "the windscreen is foggy"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "ac"
+   }
+  },
+  {
+   "id": "defrost_rear",
+   "label": "Rear demist",
+   "examples": [
+    "rear window is foggy"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "ac"
+   }
+  },
+  {
+   "id": "window_open",
+   "label": "Open window",
+   "targets": [
+    "all",
+    "driver",
+    "passenger",
+    "rear_left",
+    "rear_right"
+   ],
+   "examples": [
+    "open the windows",
+    "افتح الشبابيك",
+    "پەنجەرەکان بکەرەوە"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "bodywork"
+   }
+  },
+  {
+   "id": "window_close",
+   "label": "Close window",
+   "targets": [
+    "all",
+    "driver",
+    "passenger",
+    "rear_left",
+    "rear_right"
+   ],
+   "examples": [
+    "close the windows",
+    "سد الشبابيك",
+    "پەنجەرەکان دابخە"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "bodywork"
+   }
+  },
+  {
+   "id": "window_vent",
+   "label": "Vent windows",
+   "targets": [
+    "all",
+    "driver",
+    "passenger",
+    "rear_left",
+    "rear_right"
+   ],
+   "examples": [
+    "crack the windows a little"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "bodywork"
+   }
+  },
+  {
+   "id": "sunroof_open",
+   "label": "Open sunroof",
+   "examples": [
+    "open the sunroof",
+    "افتح الفتحة"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "bodywork"
+   }
+  },
+  {
+   "id": "sunroof_close",
+   "label": "Close sunroof",
+   "examples": [
+    "close the sunroof"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "bodywork"
+   }
+  },
+  {
+   "id": "sunshade_open",
+   "label": "Open sunshade",
+   "examples": [
+    "open the shade"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "bodywork"
+   }
+  },
+  {
+   "id": "sunshade_close",
+   "label": "Close sunshade",
+   "examples": [
+    "too bright",
+    "سكر الستارة"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "bodywork"
+   }
+  },
+  {
+   "id": "trunk_open",
+   "label": "Open trunk",
+   "examples": [
+    "open the trunk",
+    "pop the boot",
+    "افتح الصندوق",
+    "سندووقەکە بکەرەوە"
+   ],
+   "parked_only": true,
+   "car": {
+    "kind": "pending",
+    "group": "bodywork"
+   }
+  },
+  {
+   "id": "trunk_close",
+   "label": "Close trunk",
+   "examples": [
+    "close the trunk"
+   ],
+   "parked_only": true,
+   "car": {
+    "kind": "pending",
+    "group": "bodywork"
+   }
+  },
+  {
+   "id": "charge_port_open",
+   "label": "Open charge port",
+   "examples": [
+    "open the charging flap"
+   ],
+   "parked_only": true,
+   "car": {
+    "kind": "pending",
+    "group": "charging"
+   }
+  },
+  {
+   "id": "seat_heat_on",
+   "label": "Seat heating on",
+   "targets": [
+    "driver",
+    "passenger"
+   ],
+   "value": "level 1-3, default 2",
+   "examples": [
+    "heat my seat",
+    "سخن المقعد",
+    "کورسییەکەم گەرم بکە"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "seat"
+   }
+  },
+  {
+   "id": "seat_heat_off",
+   "label": "Seat heating off",
+   "targets": [
+    "driver",
+    "passenger"
+   ],
+   "examples": [
+    "seat heating off"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "seat"
+   }
+  },
+  {
+   "id": "seat_vent_on",
+   "label": "Seat cooling on",
+   "targets": [
+    "driver",
+    "passenger"
+   ],
+   "value": "level 1-3, default 2",
+   "examples": [
+    "cool my seat",
+    "my back is sweating"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "seat"
+   }
+  },
+  {
+   "id": "seat_vent_off",
+   "label": "Seat cooling off",
+   "targets": [
+    "driver",
+    "passenger"
+   ],
+   "examples": [
+    "seat cooling off"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "seat"
+   }
+  },
+  {
+   "id": "lock",
+   "label": "Lock",
+   "examples": [
+    "lock the car",
+    "قفل السيارة"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "lock"
+   }
+  },
+  {
+   "id": "unlock",
+   "label": "Unlock",
+   "examples": [
+    "unlock"
+   ],
+   "parked_only": true,
+   "car": {
+    "kind": "pending",
+    "group": "lock"
+   }
+  },
+  {
+   "id": "mirrors_fold",
+   "label": "Fold mirrors",
+   "examples": [
+    "fold the mirrors"
+   ],
+   "parked_only": true,
+   "car": {
+    "kind": "pending",
+    "group": "bodywork"
+   }
+  },
+  {
+   "id": "mirrors_unfold",
+   "label": "Unfold mirrors",
+   "examples": [
+    "unfold the mirrors"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "bodywork"
+   }
+  },
+  {
+   "id": "drive_mode",
+   "label": "Drive mode",
+   "value": "eco | normal | sport",
+   "examples": [
+    "sport mode",
+    "eco mode"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "drive"
+   }
+  },
+  {
+   "id": "navigate_home",
+   "label": "Navigate home",
+   "examples": [
+    "take me home",
+    "ودّيني البيت",
+    "بمبە بۆ ماڵەوە"
+   ],
+   "car": {
+    "kind": "nav",
+    "to": "home"
+   }
+  },
+  {
+   "id": "navigate_to",
+   "label": "Navigate to a place",
+   "value": "place name",
+   "examples": [
+    "take me to Family Mall",
+    "navigate to the citadel"
+   ],
+   "car": {
+    "kind": "nav"
+   }
+  },
+  {
+   "id": "play_music",
+   "label": "Play music",
+   "examples": [
+    "play some music",
+    "شغل أغاني"
+   ],
+   "car": {
+    "kind": "app",
+    "pkg": "com.spotify.music"
+   }
+  },
+  {
+   "id": "cluster_scene",
+   "label": "Change cluster scene",
+   "value": "citadel | dukan | zagros | city | dials",
+   "examples": [
+    "put the citadel on the dashboard"
+   ],
+   "car": {
+    "kind": "theme"
+   }
+  },
+  {
+   "id": "screen_dim",
+   "label": "Dim screen",
+   "examples": [
+    "the screen is too bright"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "display"
+   }
+  },
+  {
+   "id": "screen_bright",
+   "label": "Brighter screen",
+   "examples": [
+    "I can't see the screen"
+   ],
+   "car": {
+    "kind": "pending",
+    "group": "display"
+   }
+  }
+ ],
+ "feelings": [
+  {
+   "say": "I feel cold / I'm freezing / بردان / سەرمامە",
+   "do": [
+    {
+     "action": "seat_heat_on",
+     "target": "driver"
+    },
+    {
+     "action": "climate_warmer"
+    }
+   ]
+  },
+  {
+   "say": "I'm hot / boiling / حرّان / گەرمامە",
+   "do": [
+    {
+     "action": "seat_vent_on",
+     "target": "driver"
+    },
+    {
+     "action": "climate_cooler"
+    }
+   ]
+  },
+  {
+   "say": "It's stuffy / I need air",
+   "do": [
+    {
+     "action": "fresh_air_on"
+    },
+    {
+     "action": "window_vent",
+     "target": "all"
+    }
+   ]
+  },
+  {
+   "say": "Windows are foggy",
+   "do": [
+    {
+     "action": "defrost_front"
+    },
+    {
+     "action": "defrost_rear"
+    }
+   ]
+  },
+  {
+   "say": "I'm leaving the car",
+   "do": [
+    {
+     "action": "window_close",
+     "target": "all"
+    },
+    {
+     "action": "sunroof_close"
+    },
+    {
+     "action": "lock"
+    }
+   ]
+  },
+  {
+   "say": "Dust storm outside / عجاج",
+   "do": [
+    {
+     "action": "window_close",
+     "target": "all"
+    },
+    {
+     "action": "sunroof_close"
+    },
+    {
+     "action": "recirculate_on"
+    }
+   ]
+  },
+  {
+   "say": "Car wash mode / غسيل السيارة / شوشتنی ئۆتۆمبێل",
+   "do": [
+    {
+     "action": "window_close",
+     "target": "all"
+    },
+    {
+     "action": "sunroof_close"
+    },
+    {
+     "action": "mirrors_fold"
+    },
+    {
+     "action": "recirculate_on"
+    },
+    {
+     "action": "ac_off"
+    }
+   ]
+  },
+  {
+   "say": "Car wash done",
+   "do": [
+    {
+     "action": "mirrors_unfold"
+    },
+    {
+     "action": "fresh_air_on"
+    }
+   ]
+  },
+  {
+   "say": "Off-road / desert mode",
+   "do": [
+    {
+     "action": "window_close",
+     "target": "all"
+    },
+    {
+     "action": "sunroof_close"
+    },
+    {
+     "action": "recirculate_on"
+    },
+    {
+     "action": "drive_mode",
+     "value": "sport"
+    }
+   ]
+  },
+  {
+   "say": "Cinema mode / I want to watch something",
+   "do": [
+    {
+     "action": "sunshade_close"
+    },
+    {
+     "action": "screen_dim"
+    }
+   ]
+  },
+  {
+   "say": "Nap mode / I want to rest",
+   "do": [
+    {
+     "action": "sunshade_close"
+    },
+    {
+     "action": "seat_vent_off",
+     "target": "driver"
+    },
+    {
+     "action": "climate_set_temp",
+     "value": 23
+    },
+    {
+     "action": "screen_dim"
+    }
+   ]
+  },
+  {
+   "say": "My feet are cold",
+   "do": [
+    {
+     "action": "climate_warmer"
+    },
+    {
+     "action": "seat_heat_on",
+     "target": "driver"
+    }
+   ]
+  },
+  {
+   "say": "It's too bright in here",
+   "do": [
+    {
+     "action": "sunshade_close"
+    },
+    {
+     "action": "screen_dim"
+    }
+   ]
+  }
+ ]
 }
