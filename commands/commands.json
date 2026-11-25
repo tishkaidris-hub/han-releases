@@ -1,5 +1,5 @@
 {
- "version": 3,
+ "version": 4,
  "note": "Han Auto voice commands. Add a command = add an entry here (no app update needed: the app also downloads the newest copy of this file from tishkaidris-hub/han-releases). 'car.kind': pending = waiting for BYD property ids from the fid catalog; nav, app, theme, shell = handled now.",
  "actions": [
   {
@@ -494,6 +494,32 @@
    "value": "0-100",
    "examples": [
     "make the rain quieter"
+   ],
+   "car": {
+    "kind": "page"
+   }
+  },
+  {
+   "id": "dashboard",
+   "label": "Show a dashboard skin",
+   "value": "gtr | minimal | cyber | analog",
+   "examples": [
+    "show the GT-R meters",
+    "cyberpunk dashboard",
+    "make it look like a Porsche"
+   ],
+   "car": {
+    "kind": "page"
+   }
+  },
+  {
+   "id": "open_app",
+   "label": "Open an app",
+   "value": "Karaoke | Spotify | YouTube | GeForce NOW | Xbox | PS Remote Play | DJI Fly | Thermal camera | Waze | Google Maps",
+   "examples": [
+    "let's do karaoke",
+    "open GeForce NOW",
+    "فتح يوتيوب"
    ],
    "car": {
     "kind": "page"
