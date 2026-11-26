@@ -1,0 +1,24 @@
+name: Publish Han voice pack
+on:
+  push:
+    branches: [incoming]
+permissions:
+  contents: write
+jobs:
+  voice:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build voice-1 release (Meta Omnilingual ASR 300M int8, Apache-2.0, via sherpa-onnx)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          if gh release view voice-1 --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then echo exists; exit 0; fi
+          B=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models
+          D=sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-v2-int8-2026-02-05
+          curl -fsSL $B/$D.tar.bz2 | tar xj
+          curl -fsSL -o silero_vad.onnx $B/silero_vad.onnx
+          cp $D/model.int8.onnx omni-model.int8.onnx; cp $D/tokens.txt omni-tokens.txt; cp $D/LICENSE omni-LICENSE.txt
+          ls -la omni-* silero_vad.onnx
+          sha256sum omni-model.int8.onnx omni-tokens.txt > SHA256SUMS
+          gh release create voice-1 omni-model.int8.onnx omni-tokens.txt omni-LICENSE.txt silero_vad.onnx SHA256SUMS --repo "$GITHUB_REPOSITORY" --title "Han voice pack 1" --notes "Offline speech recognition for Han Auto (English, Arabic, Kurdish Sorani). Meta Omnilingual ASR 300M CTC int8 (Apache-2.0), packaged by k2-fsa/sherpa-onnx (Apache-2.0)." --target main
