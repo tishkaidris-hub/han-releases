@@ -1,5 +1,5 @@
 {
- "version": 6,
+ "version": 7,
  "note": "Han Auto voice commands. Add a command = add an entry here (no app update needed: the app also downloads the newest copy of this file from tishkaidris-hub/han-releases). 'car.kind': pending = waiting for BYD property ids from the fid catalog; nav, app, theme, shell = handled now. 'phrases' = what Han understands with no internet or key (on-car matcher); Claude still handles everything else.",
  "actions": [
   {
@@ -12,8 +12,22 @@
     "پلەی گەرمی بکە ٢٢"
    ],
    "car": {
-    "kind": "pending",
-    "group": "ac"
+    "kind": "byd",
+    "writes": [
+     {
+      "dev": "Ac",
+      "method": "setAcTemperature",
+      "args": [
+       0,
+       "$value",
+       1,
+       1
+      ],
+      "min": 17,
+      "max": 33,
+      "clampArg": 1
+     }
+    ]
    }
   },
   {
@@ -25,8 +39,28 @@
     "کەمێک گەرمتر"
    ],
    "car": {
-    "kind": "pending",
-    "group": "ac"
+    "kind": "byd",
+    "writes": [
+     {
+      "dev": "Ac",
+      "method": "setAcTemperature",
+      "args": [
+       0,
+       "$cur+2",
+       1,
+       1
+      ],
+      "read": {
+       "method": "getTemprature",
+       "args": [
+        1
+       ]
+      },
+      "min": 17,
+      "max": 33,
+      "clampArg": 1
+     }
+    ]
    }
   },
   {
@@ -38,8 +72,28 @@
     "ساردتری بکە"
    ],
    "car": {
-    "kind": "pending",
-    "group": "ac"
+    "kind": "byd",
+    "writes": [
+     {
+      "dev": "Ac",
+      "method": "setAcTemperature",
+      "args": [
+       0,
+       "$cur-2",
+       1,
+       1
+      ],
+      "read": {
+       "method": "getTemprature",
+       "args": [
+        1
+       ]
+      },
+      "min": 17,
+      "max": 33,
+      "clampArg": 1
+     }
+    ]
    }
   },
   {
@@ -51,8 +105,16 @@
     "مەکینەی ساردکەرەوە هەڵبکە"
    ],
    "car": {
-    "kind": "pending",
-    "group": "ac"
+    "kind": "byd",
+    "writes": [
+     {
+      "dev": "Ac",
+      "method": "start",
+      "args": [
+       1
+      ]
+     }
+    ]
    }
   },
   {
@@ -63,8 +125,16 @@
     "طفي المكيف"
    ],
    "car": {
-    "kind": "pending",
-    "group": "ac"
+    "kind": "byd",
+    "writes": [
+     {
+      "dev": "Ac",
+      "method": "stop",
+      "args": [
+       1
+      ]
+     }
+    ]
    }
   },
   {
@@ -74,8 +144,24 @@
     "more air"
    ],
    "car": {
-    "kind": "pending",
-    "group": "ac"
+    "kind": "byd",
+    "writes": [
+     {
+      "dev": "Ac",
+      "method": "setAcWindLevel",
+      "args": [
+       1,
+       "$cur+2"
+      ],
+      "read": {
+       "method": "getAcWindLevel",
+       "args": []
+      },
+      "min": 1,
+      "max": 7,
+      "clampArg": 1
+     }
+    ]
    }
   },
   {
@@ -85,8 +171,24 @@
     "less air"
    ],
    "car": {
-    "kind": "pending",
-    "group": "ac"
+    "kind": "byd",
+    "writes": [
+     {
+      "dev": "Ac",
+      "method": "setAcWindLevel",
+      "args": [
+       1,
+       "$cur-2"
+      ],
+      "read": {
+       "method": "getAcWindLevel",
+       "args": []
+      },
+      "min": 1,
+      "max": 7,
+      "clampArg": 1
+     }
+    ]
    }
   },
   {
@@ -97,8 +199,17 @@
     "recirculate"
    ],
    "car": {
-    "kind": "pending",
-    "group": "ac"
+    "kind": "byd",
+    "writes": [
+     {
+      "dev": "Ac",
+      "method": "setAcCycleMode",
+      "args": [
+       1,
+       1
+      ]
+     }
+    ]
    }
   },
   {
@@ -109,8 +220,17 @@
     "fresh air"
    ],
    "car": {
-    "kind": "pending",
-    "group": "ac"
+    "kind": "byd",
+    "writes": [
+     {
+      "dev": "Ac",
+      "method": "setAcCycleMode",
+      "args": [
+       1,
+       0
+      ]
+     }
+    ]
    }
   },
   {
@@ -120,8 +240,18 @@
     "the windscreen is foggy"
    ],
    "car": {
-    "kind": "pending",
-    "group": "ac"
+    "kind": "byd",
+    "writes": [
+     {
+      "dev": "Ac",
+      "method": "setAcDefrostState",
+      "args": [
+       1,
+       1,
+       1
+      ]
+     }
+    ]
    }
   },
   {
@@ -131,8 +261,18 @@
     "rear window is foggy"
    ],
    "car": {
-    "kind": "pending",
-    "group": "ac"
+    "kind": "byd",
+    "writes": [
+     {
+      "dev": "Ac",
+      "method": "setAcDefrostState",
+      "args": [
+       1,
+       2,
+       1
+      ]
+     }
+    ]
    }
   },
   {
@@ -151,8 +291,111 @@
     "پەنجەرەکان بکەرەوە"
    ],
    "car": {
-    "kind": "pending",
-    "group": "bodywork"
+    "kind": "byd",
+    "targets": {
+     "all": {
+      "writes": [
+       {
+        "dev": "Bodywork",
+        "method": "setAllWindowState",
+        "args": [
+         1,
+         1,
+         1,
+         1
+        ]
+       }
+      ]
+     },
+     "driver": {
+      "writes": [
+       {
+        "dev": "Bodywork",
+        "method": "setBodyWindowCtrlState",
+        "args": [
+         1,
+         1
+        ]
+       }
+      ]
+     },
+     "passenger": {
+      "writes": [
+       {
+        "dev": "Bodywork",
+        "method": "setBodyWindowCtrlState",
+        "args": [
+         2,
+         1
+        ]
+       }
+      ]
+     },
+     "rear_left": {
+      "writes": [
+       {
+        "dev": "Bodywork",
+        "method": "setBodyWindowCtrlState",
+        "args": [
+         3,
+         1
+        ]
+       }
+      ]
+     },
+     "rear_right": {
+      "writes": [
+       {
+        "dev": "Bodywork",
+        "method": "setBodyWindowCtrlState",
+        "args": [
+         4,
+         1
+        ]
+       }
+      ]
+     },
+     "rear": {
+      "writes": [
+       {
+        "dev": "Bodywork",
+        "method": "setBodyWindowCtrlState",
+        "args": [
+         3,
+         1
+        ]
+       },
+       {
+        "dev": "Bodywork",
+        "method": "setBodyWindowCtrlState",
+        "args": [
+         4,
+         1
+        ]
+       }
+      ]
+     },
+     "front": {
+      "writes": [
+       {
+        "dev": "Bodywork",
+        "method": "setBodyWindowCtrlState",
+        "args": [
+         1,
+         1
+        ]
+       },
+       {
+        "dev": "Bodywork",
+        "method": "setBodyWindowCtrlState",
+        "args": [
+         2,
+         1
+        ]
+       }
+      ]
+     }
+    }
    }
   },
   {
@@ -171,8 +414,111 @@
     "پەنجەرەکان دابخە"
    ],
    "car": {
-    "kind": "pending",
-    "group": "bodywork"
+    "kind": "byd",
+    "targets": {
+     "all": {
+      "writes": [
+       {
+        "dev": "Bodywork",
+        "method": "setAllWindowState",
+        "args": [
+         2,
+         2,
+         2,
+         2
+        ]
+       }
+      ]
+     },
+     "driver": {
+      "writes": [
+       {
+        "dev": "Bodywork",
+        "method": "setBodyWindowCtrlState",
+        "args": [
+         1,
+         2
+        ]
+       }
+      ]
+     },
+     "passenger": {
+      "writes": [
+       {
+        "dev": "Bodywork",
+        "method": "setBodyWindowCtrlState",
+        "args": [
+         2,
+         2
+        ]
+       }
+      ]
+     },
+     "rear_left": {
+      "writes": [
+       {
+        "dev": "Bodywork",
+        "method": "setBodyWindowCtrlState",
+        "args": [
+         3,
+         2
+        ]
+       }
+      ]
+     },
+     "rear_right": {
+      "writes": [
+       {
+        "dev": "Bodywork",
+        "method": "setBodyWindowCtrlState",
+        "args": [
+         4,
+         2
+        ]
+       }
+      ]
+     },
+     "rear": {
+      "writes": [
+       {
+        "dev": "Bodywork",
+        "method": "setBodyWindowCtrlState",
+        "args": [
+         3,
+         2
+        ]
+       },
+       {
+        "dev": "Bodywork",
+        "method": "setBodyWindowCtrlState",
+        "args": [
+         4,
+         2
+        ]
+       }
+      ]
+     },
+     "front": {
+      "writes": [
+       {
+        "dev": "Bodywork",
+        "method": "setBodyWindowCtrlState",
+        "args": [
+         1,
+         2
+        ]
+       },
+       {
+        "dev": "Bodywork",
+        "method": "setBodyWindowCtrlState",
+        "args": [
+         2,
+         2
+        ]
+       }
+      ]
+     }
+    }
    }
   },
   {
@@ -189,8 +535,111 @@
     "crack the windows a little"
    ],
    "car": {
-    "kind": "pending",
-    "group": "bodywork"
+    "kind": "byd",
+    "targets": {
+     "all": {
+      "writes": [
+       {
+        "dev": "Bodywork",
+        "method": "setAllWindowState",
+        "args": [
+         5,
+         5,
+         5,
+         5
+        ]
+       }
+      ]
+     },
+     "driver": {
+      "writes": [
+       {
+        "dev": "Bodywork",
+        "method": "setBodyWindowCtrlState",
+        "args": [
+         1,
+         5
+        ]
+       }
+      ]
+     },
+     "passenger": {
+      "writes": [
+       {
+        "dev": "Bodywork",
+        "method": "setBodyWindowCtrlState",
+        "args": [
+         2,
+         5
+        ]
+       }
+      ]
+     },
+     "rear_left": {
+      "writes": [
+       {
+        "dev": "Bodywork",
+        "method": "setBodyWindowCtrlState",
+        "args": [
+         3,
+         5
+        ]
+       }
+      ]
+     },
+     "rear_right": {
+      "writes": [
+       {
+        "dev": "Bodywork",
+        "method": "setBodyWindowCtrlState",
+        "args": [
+         4,
+         5
+        ]
+       }
+      ]
+     },
+     "rear": {
+      "writes": [
+       {
+        "dev": "Bodywork",
+        "method": "setBodyWindowCtrlState",
+        "args": [
+         3,
+         5
+        ]
+       },
+       {
+        "dev": "Bodywork",
+        "method": "setBodyWindowCtrlState",
+        "args": [
+         4,
+         5
+        ]
+       }
+      ]
+     },
+     "front": {
+      "writes": [
+       {
+        "dev": "Bodywork",
+        "method": "setBodyWindowCtrlState",
+        "args": [
+         1,
+         5
+        ]
+       },
+       {
+        "dev": "Bodywork",
+        "method": "setBodyWindowCtrlState",
+        "args": [
+         2,
+         5
+        ]
+       }
+      ]
+     }
+    }
    }
   },
   {
@@ -201,8 +650,16 @@
     "افتح الفتحة"
    ],
    "car": {
-    "kind": "pending",
-    "group": "bodywork"
+    "kind": "byd",
+    "writes": [
+     {
+      "dev": "Bodywork",
+      "method": "setMoonRoofState",
+      "args": [
+       100
+      ]
+     }
+    ]
    }
   },
   {
@@ -212,8 +669,16 @@
     "close the sunroof"
    ],
    "car": {
-    "kind": "pending",
-    "group": "bodywork"
+    "kind": "byd",
+    "writes": [
+     {
+      "dev": "Bodywork",
+      "method": "setMoonRoofState",
+      "args": [
+       0
+      ]
+     }
+    ]
    }
   },
   {
@@ -223,8 +688,16 @@
     "open the shade"
    ],
    "car": {
-    "kind": "pending",
-    "group": "bodywork"
+    "kind": "byd",
+    "writes": [
+     {
+      "dev": "Bodywork",
+      "method": "setSunshadeState",
+      "args": [
+       100
+      ]
+     }
+    ]
    }
   },
   {
@@ -235,8 +708,16 @@
     "سكر الستارة"
    ],
    "car": {
-    "kind": "pending",
-    "group": "bodywork"
+    "kind": "byd",
+    "writes": [
+     {
+      "dev": "Bodywork",
+      "method": "setSunshadeState",
+      "args": [
+       0
+      ]
+     }
+    ]
    }
   },
   {
@@ -250,8 +731,16 @@
    ],
    "parked_only": true,
    "car": {
-    "kind": "pending",
-    "group": "bodywork"
+    "kind": "byd",
+    "writes": [
+     {
+      "dev": "Setting",
+      "method": "voiceCtlBackDoor",
+      "args": [
+       1
+      ]
+     }
+    ]
    }
   },
   {
@@ -262,8 +751,16 @@
    ],
    "parked_only": true,
    "car": {
-    "kind": "pending",
-    "group": "bodywork"
+    "kind": "byd",
+    "writes": [
+     {
+      "dev": "Setting",
+      "method": "voiceCtlBackDoor",
+      "args": [
+       2
+      ]
+     }
+    ]
    }
   },
   {
@@ -292,8 +789,53 @@
     "کورسییەکەم گەرم بکە"
    ],
    "car": {
-    "kind": "pending",
-    "group": "seat"
+    "kind": "byd",
+    "targets": {
+     "driver": {
+      "writes": [
+       {
+        "dev": "Setting",
+        "method": "setSeatHeatingState",
+        "args": [
+         1,
+         3
+        ]
+       }
+      ]
+     },
+     "passenger": {
+      "writes": [
+       {
+        "dev": "Setting",
+        "method": "setSeatHeatingState",
+        "args": [
+         2,
+         3
+        ]
+       }
+      ]
+     },
+     "all": {
+      "writes": [
+       {
+        "dev": "Setting",
+        "method": "setSeatHeatingState",
+        "args": [
+         1,
+         3
+        ]
+       },
+       {
+        "dev": "Setting",
+        "method": "setSeatHeatingState",
+        "args": [
+         2,
+         3
+        ]
+       }
+      ]
+     }
+    }
    }
   },
   {
@@ -307,8 +849,53 @@
     "seat heating off"
    ],
    "car": {
-    "kind": "pending",
-    "group": "seat"
+    "kind": "byd",
+    "targets": {
+     "driver": {
+      "writes": [
+       {
+        "dev": "Setting",
+        "method": "setSeatHeatingState",
+        "args": [
+         1,
+         1
+        ]
+       }
+      ]
+     },
+     "passenger": {
+      "writes": [
+       {
+        "dev": "Setting",
+        "method": "setSeatHeatingState",
+        "args": [
+         2,
+         1
+        ]
+       }
+      ]
+     },
+     "all": {
+      "writes": [
+       {
+        "dev": "Setting",
+        "method": "setSeatHeatingState",
+        "args": [
+         1,
+         1
+        ]
+       },
+       {
+        "dev": "Setting",
+        "method": "setSeatHeatingState",
+        "args": [
+         2,
+         1
+        ]
+       }
+      ]
+     }
+    }
    }
   },
   {
@@ -324,8 +911,53 @@
     "my back is sweating"
    ],
    "car": {
-    "kind": "pending",
-    "group": "seat"
+    "kind": "byd",
+    "targets": {
+     "driver": {
+      "writes": [
+       {
+        "dev": "Setting",
+        "method": "setSeatVentilatingState",
+        "args": [
+         1,
+         3
+        ]
+       }
+      ]
+     },
+     "passenger": {
+      "writes": [
+       {
+        "dev": "Setting",
+        "method": "setSeatVentilatingState",
+        "args": [
+         2,
+         3
+        ]
+       }
+      ]
+     },
+     "all": {
+      "writes": [
+       {
+        "dev": "Setting",
+        "method": "setSeatVentilatingState",
+        "args": [
+         1,
+         3
+        ]
+       },
+       {
+        "dev": "Setting",
+        "method": "setSeatVentilatingState",
+        "args": [
+         2,
+         3
+        ]
+       }
+      ]
+     }
+    }
    }
   },
   {
@@ -339,8 +971,53 @@
     "seat cooling off"
    ],
    "car": {
-    "kind": "pending",
-    "group": "seat"
+    "kind": "byd",
+    "targets": {
+     "driver": {
+      "writes": [
+       {
+        "dev": "Setting",
+        "method": "setSeatVentilatingState",
+        "args": [
+         1,
+         1
+        ]
+       }
+      ]
+     },
+     "passenger": {
+      "writes": [
+       {
+        "dev": "Setting",
+        "method": "setSeatVentilatingState",
+        "args": [
+         2,
+         1
+        ]
+       }
+      ]
+     },
+     "all": {
+      "writes": [
+       {
+        "dev": "Setting",
+        "method": "setSeatVentilatingState",
+        "args": [
+         1,
+         1
+        ]
+       },
+       {
+        "dev": "Setting",
+        "method": "setSeatVentilatingState",
+        "args": [
+         2,
+         1
+        ]
+       }
+      ]
+     }
+    }
    }
   },
   {
