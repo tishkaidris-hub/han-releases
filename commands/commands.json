@@ -1,6 +1,6 @@
 {
- "version": 5,
- "note": "Han Auto voice commands. Add a command = add an entry here (no app update needed: the app also downloads the newest copy of this file from tishkaidris-hub/han-releases). 'car.kind': pending = waiting for BYD property ids from the fid catalog; nav, app, theme, shell = handled now.",
+ "version": 6,
+ "note": "Han Auto voice commands. Add a command = add an entry here (no app update needed: the app also downloads the newest copy of this file from tishkaidris-hub/han-releases). 'car.kind': pending = waiting for BYD property ids from the fid catalog; nav, app, theme, shell = handled now. 'phrases' = what Han understands with no internet or key (on-car matcher); Claude still handles everything else.",
  "actions": [
   {
    "id": "climate_set_temp",
@@ -747,6 +747,1525 @@
     },
     {
      "action": "screen_dim"
+    }
+   ]
+  }
+ ],
+ "phrases": [
+  {
+   "say": {
+    "en": [
+     "warmer",
+     "a bit warmer",
+     "make it warmer",
+     "heat up the car"
+    ],
+    "ar": [
+     "دفيها",
+     "دفيها شوية",
+     "دفي السيارة",
+     "زيد الحرارة"
+    ],
+    "ckb": [
+     "گەرمتری بکە",
+     "کەمێک گەرمتر",
+     "گەرمی بکە"
+    ]
+   },
+   "do": [
+    {
+     "action": "climate_warmer"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "cooler",
+     "make it cooler",
+     "cool the car"
+    ],
+    "ar": [
+     "بردها",
+     "بردها شوية",
+     "نزل الحرارة"
+    ],
+    "ckb": [
+     "ساردتری بکە",
+     "کەمێک ساردتر",
+     "فێنکی بکە"
+    ]
+   },
+   "do": [
+    {
+     "action": "climate_cooler"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "turn on the ac",
+     "ac on",
+     "air conditioning on"
+    ],
+    "ar": [
+     "شغل المكيف",
+     "شغل المبردة",
+     "شغل التبريد"
+    ],
+    "ckb": [
+     "مەکینەکە هەڵبکە",
+     "ئەیسییەکە هەڵبکە",
+     "سپلیتەکە هەڵبکە"
+    ]
+   },
+   "do": [
+    {
+     "action": "ac_on"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "turn off the ac",
+     "ac off"
+    ],
+    "ar": [
+     "طفي المكيف",
+     "طفي المبردة",
+     "سد المكيف"
+    ],
+    "ckb": [
+     "مەکینەکە بکوژێنەوە",
+     "ئەیسییەکە بکوژێنەوە"
+    ]
+   },
+   "do": [
+    {
+     "action": "ac_off"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "more air",
+     "fan up",
+     "stronger fan"
+    ],
+    "ar": [
+     "زيد الهوا",
+     "زيد المروحة"
+    ],
+    "ckb": [
+     "هەوای زیاتر",
+     "پانکەکە زیاد بکە"
+    ]
+   },
+   "do": [
+    {
+     "action": "fan_up"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "less air",
+     "fan down",
+     "lower the fan"
+    ],
+    "ar": [
+     "قلل الهوا",
+     "نزل المروحة"
+    ],
+    "ckb": [
+     "هەوای کەمتر",
+     "پانکەکە کەم بکە"
+    ]
+   },
+   "do": [
+    {
+     "action": "fan_down"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "recirculate",
+     "it smells outside",
+     "close the air"
+    ],
+    "ar": [
+     "سد الهوا الخارجي",
+     "تدوير الهوا"
+    ],
+    "ckb": [
+     "هەوای دەرەوە دابخە"
+    ]
+   },
+   "do": [
+    {
+     "action": "recirculate_on"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "fresh air",
+     "it's stuffy"
+    ],
+    "ar": [
+     "هوا خارجي",
+     "افتح الهوا الخارجي"
+    ],
+    "ckb": [
+     "هەوای پاک",
+     "هەوای دەرەوە بکەرەوە"
+    ]
+   },
+   "do": [
+    {
+     "action": "fresh_air_on"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "defrost",
+     "the windscreen is foggy",
+     "clear the windscreen"
+    ],
+    "ar": [
+     "الجامة مغبشة",
+     "شغل الضباب",
+     "نظف الجامة"
+    ],
+    "ckb": [
+     "جامەکە هەڵمی گرتووە",
+     "جامی پێشەوە پاک بکەرەوە"
+    ]
+   },
+   "do": [
+    {
+     "action": "defrost_front"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "rear defrost",
+     "rear window is foggy"
+    ],
+    "ar": [
+     "الجامة الخلفية مغبشة"
+    ],
+    "ckb": [
+     "جامی دواوە هەڵمی گرتووە"
+    ]
+   },
+   "do": [
+    {
+     "action": "defrost_rear"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "open the windows",
+     "open all windows",
+     "windows down",
+     "roll down the windows"
+    ],
+    "ar": [
+     "افتح الشبابيك",
+     "نزل الجامات",
+     "افتح الجامات",
+     "نزل الشبابيك",
+     "افتح النوافذ",
+     "افتح الشبابيك كلها"
+    ],
+    "ckb": [
+     "پەنجەرەکان بکەرەوە",
+     "جامەکان بکەرەوە",
+     "جامەکان دابەزێنە"
+    ]
+   },
+   "do": [
+    {
+     "action": "window_open",
+     "target": "all"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "close the windows",
+     "close all windows",
+     "windows up",
+     "roll up the windows"
+    ],
+    "ar": [
+     "سد الشبابيك",
+     "صعد الجامات",
+     "سد الجامات",
+     "سكر الشبابيك",
+     "سد النوافذ",
+     "اغلق النوافذ",
+     "سكر النوافذ"
+    ],
+    "ckb": [
+     "پەنجەرەکان دابخە",
+     "جامەکان دابخە",
+     "جامەکان بەرز بکەرەوە"
+    ]
+   },
+   "do": [
+    {
+     "action": "window_close",
+     "target": "all"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "open my window",
+     "open the driver window"
+    ],
+    "ar": [
+     "افتح شباكي",
+     "نزل جامتي"
+    ],
+    "ckb": [
+     "پەنجەرەکەم بکەرەوە",
+     "جامەکەم بکەرەوە"
+    ]
+   },
+   "do": [
+    {
+     "action": "window_open",
+     "target": "driver"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "close my window"
+    ],
+    "ar": [
+     "سد شباكي",
+     "صعد جامتي"
+    ],
+    "ckb": [
+     "پەنجەرەکەم دابخە",
+     "جامەکەم دابخە"
+    ]
+   },
+   "do": [
+    {
+     "action": "window_close",
+     "target": "driver"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "crack the windows",
+     "open the windows a little",
+     "vent the windows"
+    ],
+    "ar": [
+     "افتح الشبابيك شوية",
+     "نزل الجامات شوية"
+    ],
+    "ckb": [
+     "پەنجەرەکان کەمێک بکەرەوە",
+     "جامەکان کەمێک بکەرەوە"
+    ]
+   },
+   "do": [
+    {
+     "action": "window_vent",
+     "target": "all"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "open the sunroof",
+     "open the roof"
+    ],
+    "ar": [
+     "افتح الفتحة",
+     "افتح السقف"
+    ],
+    "ckb": [
+     "سەقفەکە بکەرەوە",
+     "فتحەکە بکەرەوە"
+    ]
+   },
+   "do": [
+    {
+     "action": "sunroof_open"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "close the sunroof",
+     "close the roof"
+    ],
+    "ar": [
+     "سد الفتحة",
+     "سكر الفتحة",
+     "سد السقف"
+    ],
+    "ckb": [
+     "سەقفەکە دابخە",
+     "فتحەکە دابخە"
+    ]
+   },
+   "do": [
+    {
+     "action": "sunroof_close"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "open the shade",
+     "open the sunshade",
+     "open the curtain"
+    ],
+    "ar": [
+     "افتح الستارة",
+     "افتح البردة"
+    ],
+    "ckb": [
+     "پەردەکە بکەرەوە"
+    ]
+   },
+   "do": [
+    {
+     "action": "sunshade_open"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "close the shade",
+     "close the sunshade",
+     "close the curtain"
+    ],
+    "ar": [
+     "سد الستارة",
+     "سكر الستارة",
+     "سد البردة"
+    ],
+    "ckb": [
+     "پەردەکە دابخە"
+    ]
+   },
+   "do": [
+    {
+     "action": "sunshade_close"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "open the trunk",
+     "open the boot",
+     "pop the trunk",
+     "pop the boot"
+    ],
+    "ar": [
+     "افتح الصندوق",
+     "افتح الدبة",
+     "افتح الشنطة",
+     "افتح صندوق السيارة"
+    ],
+    "ckb": [
+     "سندووقەکە بکەرەوە",
+     "سندوقەکە بکەرەوە",
+     "پشتەوە بکەرەوە"
+    ]
+   },
+   "do": [
+    {
+     "action": "trunk_open"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "close the trunk",
+     "close the boot"
+    ],
+    "ar": [
+     "سد الصندوق",
+     "سد الدبة",
+     "سكر الدبة"
+    ],
+    "ckb": [
+     "سندووقەکە دابخە",
+     "سندوقەکە دابخە"
+    ]
+   },
+   "do": [
+    {
+     "action": "trunk_close"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "open the charging port",
+     "open the charging flap",
+     "open the charge port"
+    ],
+    "ar": [
+     "افتح فتحة الشحن",
+     "افتح باب الشحن"
+    ],
+    "ckb": [
+     "دەرگای شەحن بکەرەوە",
+     "شەحنەکە بکەرەوە"
+    ]
+   },
+   "do": [
+    {
+     "action": "charge_port_open"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "heat my seat",
+     "seat heater on",
+     "turn on the seat heater",
+     "warm my seat"
+    ],
+    "ar": [
+     "سخن الكرسي",
+     "سخن المقعد",
+     "شغل تدفئة الكرسي",
+     "دفي الكرسي"
+    ],
+    "ckb": [
+     "کورسییەکەم گەرم بکە",
+     "گەرمکەرەوەی کورسی هەڵبکە"
+    ]
+   },
+   "do": [
+    {
+     "action": "seat_heat_on",
+     "target": "driver"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "seat heater off",
+     "stop heating my seat",
+     "turn off the seat heater"
+    ],
+    "ar": [
+     "طفي تسخين الكرسي",
+     "طفي تدفئة الكرسي"
+    ],
+    "ckb": [
+     "گەرمکەرەوەی کورسی بکوژێنەوە"
+    ]
+   },
+   "do": [
+    {
+     "action": "seat_heat_off",
+     "target": "driver"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "heat the passenger seat"
+    ],
+    "ar": [
+     "سخن كرسي الراكب"
+    ],
+    "ckb": [
+     "کورسی تەنیشتم گەرم بکە"
+    ]
+   },
+   "do": [
+    {
+     "action": "seat_heat_on",
+     "target": "passenger"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "cool my seat",
+     "seat cooling on",
+     "ventilate my seat",
+     "my back is sweating"
+    ],
+    "ar": [
+     "برد الكرسي",
+     "برد المقعد",
+     "شغل تبريد الكرسي"
+    ],
+    "ckb": [
+     "کورسییەکەم سارد بکە",
+     "ساردکەرەوەی کورسی هەڵبکە"
+    ]
+   },
+   "do": [
+    {
+     "action": "seat_vent_on",
+     "target": "driver"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "seat cooling off",
+     "stop cooling my seat"
+    ],
+    "ar": [
+     "طفي تبريد الكرسي"
+    ],
+    "ckb": [
+     "ساردکەرەوەی کورسی بکوژێنەوە"
+    ]
+   },
+   "do": [
+    {
+     "action": "seat_vent_off",
+     "target": "driver"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "lock the car",
+     "lock the doors",
+     "lock"
+    ],
+    "ar": [
+     "قفل السيارة",
+     "قفل الابواب",
+     "سكر الابواب"
+    ],
+    "ckb": [
+     "ئۆتۆمبێلەکە قفڵ بکە",
+     "دەرگاکان قفڵ بکە"
+    ]
+   },
+   "do": [
+    {
+     "action": "lock"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "unlock the car",
+     "unlock the doors",
+     "unlock"
+    ],
+    "ar": [
+     "افتح القفل",
+     "افتح الابواب"
+    ],
+    "ckb": [
+     "قفڵەکە بکەرەوە",
+     "دەرگاکان بکەرەوە"
+    ]
+   },
+   "do": [
+    {
+     "action": "unlock"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "fold the mirrors",
+     "close the mirrors"
+    ],
+    "ar": [
+     "سد المرايات",
+     "طوي المرايات",
+     "سكر المرايات"
+    ],
+    "ckb": [
+     "ئاوێنەکان دابخە",
+     "ئاوێنەکان بنووشتێنەوە"
+    ]
+   },
+   "do": [
+    {
+     "action": "mirrors_fold"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "unfold the mirrors",
+     "open the mirrors"
+    ],
+    "ar": [
+     "افتح المرايات"
+    ],
+    "ckb": [
+     "ئاوێنەکان بکەرەوە"
+    ]
+   },
+   "do": [
+    {
+     "action": "mirrors_unfold"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "sport mode",
+     "sports mode"
+    ],
+    "ar": [
+     "وضع الرياضي",
+     "سبورت مود"
+    ],
+    "ckb": [
+     "مۆدی سپۆرت",
+     "دۆخی وەرزشی"
+    ]
+   },
+   "do": [
+    {
+     "action": "drive_mode",
+     "value": "sport"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "eco mode",
+     "economy mode",
+     "save battery"
+    ],
+    "ar": [
+     "وضع الاقتصادي",
+     "ايكو مود"
+    ],
+    "ckb": [
+     "مۆدی ئیکۆ",
+     "دۆخی ئابووری"
+    ]
+   },
+   "do": [
+    {
+     "action": "drive_mode",
+     "value": "eco"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "normal mode",
+     "normal driving"
+    ],
+    "ar": [
+     "الوضع العادي"
+    ],
+    "ckb": [
+     "مۆدی ئاسایی"
+    ]
+   },
+   "do": [
+    {
+     "action": "drive_mode",
+     "value": "normal"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "take me home",
+     "navigate home",
+     "go home",
+     "drive home"
+    ],
+    "ar": [
+     "وديني للبيت",
+     "وديني البيت",
+     "خذني للبيت",
+     "روح للبيت"
+    ],
+    "ckb": [
+     "بمبە بۆ ماڵەوە",
+     "بڕۆ بۆ ماڵەوە",
+     "ماڵەوە"
+    ]
+   },
+   "do": [
+    {
+     "action": "navigate_home"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "play some music",
+     "play music",
+     "play songs",
+     "music"
+    ],
+    "ar": [
+     "شغل اغاني",
+     "شغل موسيقى",
+     "شغل اغنية"
+    ],
+    "ckb": [
+     "گۆرانی لێبدە",
+     "مۆسیقا لێبدە",
+     "گۆرانییەک لێبدە"
+    ]
+   },
+   "do": [
+    {
+     "action": "play_music"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "put the citadel on the dashboard",
+     "citadel theme"
+    ],
+    "ar": [
+     "القلعة على الشاشة",
+     "ثيم القلعة"
+    ],
+    "ckb": [
+     "قەڵاکە دابنێ",
+     "قەڵا"
+    ]
+   },
+   "do": [
+    {
+     "action": "cluster_scene",
+     "value": "citadel"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "lake dukan",
+     "dukan theme"
+    ],
+    "ar": [
+     "بحيرة دوكان"
+    ],
+    "ckb": [
+     "دەریاچەی دوکان",
+     "دوکان"
+    ]
+   },
+   "do": [
+    {
+     "action": "cluster_scene",
+     "value": "dukan"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "mountains",
+     "zagros theme"
+    ],
+    "ar": [
+     "الجبال",
+     "زاكروس"
+    ],
+    "ckb": [
+     "چیاکان",
+     "زاگرۆس"
+    ]
+   },
+   "do": [
+    {
+     "action": "cluster_scene",
+     "value": "zagros"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "city theme",
+     "show the city"
+    ],
+    "ar": [
+     "المدينة"
+    ],
+    "ckb": [
+     "شار",
+     "شارەکە"
+    ]
+   },
+   "do": [
+    {
+     "action": "cluster_scene",
+     "value": "city"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "show the dials",
+     "normal gauges"
+    ],
+    "ar": [
+     "العدادات"
+    ],
+    "ckb": [
+     "عەدادەکان"
+    ]
+   },
+   "do": [
+    {
+     "action": "cluster_scene",
+     "value": "dials"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "dim the screen",
+     "the screen is too bright",
+     "darker screen"
+    ],
+    "ar": [
+     "خفف الشاشة",
+     "طفي ضوء الشاشة شوية",
+     "الشاشة قوية"
+    ],
+    "ckb": [
+     "شاشەکە کز بکە",
+     "ڕووناکی شاشە کەم بکە"
+    ]
+   },
+   "do": [
+    {
+     "action": "screen_dim"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "brighter screen",
+     "i can't see the screen",
+     "make the screen brighter"
+    ],
+    "ar": [
+     "ضوي الشاشة",
+     "زيد ضوء الشاشة"
+    ],
+    "ckb": [
+     "شاشەکە ڕووناکتر بکە",
+     "ڕووناکی شاشە زیاد بکە"
+    ]
+   },
+   "do": [
+    {
+     "action": "screen_bright"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "rain sounds",
+     "play rain",
+     "i want to hear rain"
+    ],
+    "ar": [
+     "صوت المطر",
+     "شغل صوت المطر"
+    ],
+    "ckb": [
+     "دەنگی باران",
+     "باران لێبدە"
+    ]
+   },
+   "do": [
+    {
+     "action": "soundscape",
+     "value": "rain"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "sea sounds",
+     "ocean sounds",
+     "i want to hear the sea",
+     "waves"
+    ],
+    "ar": [
+     "صوت البحر",
+     "صوت الموج"
+    ],
+    "ckb": [
+     "دەنگی دەریا",
+     "شەپۆل"
+    ]
+   },
+   "do": [
+    {
+     "action": "soundscape",
+     "value": "sea"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "wind sounds",
+     "mountain wind",
+     "zagros wind"
+    ],
+    "ar": [
+     "صوت الهوا",
+     "صوت الريح"
+    ],
+    "ckb": [
+     "دەنگی با",
+     "بای چیا"
+    ]
+   },
+   "do": [
+    {
+     "action": "soundscape",
+     "value": "wind"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "forest sounds",
+     "birds",
+     "bird sounds"
+    ],
+    "ar": [
+     "صوت الغابة",
+     "صوت العصافير"
+    ],
+    "ckb": [
+     "دەنگی دارستان",
+     "دەنگی باڵندە",
+     "چۆلەکە"
+    ]
+   },
+   "do": [
+    {
+     "action": "soundscape",
+     "value": "forest"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "stream sounds",
+     "river sounds",
+     "water sounds"
+    ],
+    "ar": [
+     "صوت الماي",
+     "صوت الشلال",
+     "صوت النهر"
+    ],
+    "ckb": [
+     "دەنگی ئاو",
+     "دەنگی جۆگە",
+     "دەنگی ڕووبار"
+    ]
+   },
+   "do": [
+    {
+     "action": "soundscape",
+     "value": "stream"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "campfire",
+     "fire sounds"
+    ],
+    "ar": [
+     "صوت النار",
+     "صوت الحطب"
+    ],
+    "ckb": [
+     "دەنگی ئاگر",
+     "ئاگردان"
+    ]
+   },
+   "do": [
+    {
+     "action": "soundscape",
+     "value": "fire"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "night sounds",
+     "crickets",
+     "summer night"
+    ],
+    "ar": [
+     "صوت الليل",
+     "صوت الصراصير"
+    ],
+    "ckb": [
+     "دەنگی شەو",
+     "شەوی هاوین"
+    ]
+   },
+   "do": [
+    {
+     "action": "soundscape",
+     "value": "night"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "stop the nature sounds",
+     "stop the sounds",
+     "turn off the sounds"
+    ],
+    "ar": [
+     "طفي الاصوات",
+     "وقف الاصوات"
+    ],
+    "ckb": [
+     "دەنگەکان ڕابگرە",
+     "دەنگەکان بکوژێنەوە"
+    ]
+   },
+   "do": [
+    {
+     "action": "soundscape",
+     "value": "off"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "quieter",
+     "make the sounds quieter",
+     "lower the sounds"
+    ],
+    "ar": [
+     "نزل الصوت",
+     "وطي الصوت"
+    ],
+    "ckb": [
+     "دەنگەکە کەم بکە",
+     "هێواشتر"
+    ]
+   },
+   "do": [
+    {
+     "action": "sounds_volume",
+     "value": "30"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "louder",
+     "make the sounds louder"
+    ],
+    "ar": [
+     "علي الصوت",
+     "زيد الصوت"
+    ],
+    "ckb": [
+     "دەنگەکە زیاد بکە",
+     "بەرزتر"
+    ]
+   },
+   "do": [
+    {
+     "action": "sounds_volume",
+     "value": "80"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "gtr meters",
+     "gt-r dashboard",
+     "race dashboard",
+     "show the gtr"
+    ],
+    "ar": [
+     "عداد جي تي ار",
+     "عدادات السباق"
+    ],
+    "ckb": [
+     "داشبۆردی جی تی ئاڕ",
+     "عەدادی پێشبڕکێ"
+    ]
+   },
+   "do": [
+    {
+     "action": "dashboard",
+     "value": "gtr"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "minimal dashboard",
+     "audi dashboard",
+     "simple dashboard"
+    ],
+    "ar": [
+     "العداد البسيط",
+     "عداد اودي"
+    ],
+    "ckb": [
+     "داشبۆردی سادە"
+    ]
+   },
+   "do": [
+    {
+     "action": "dashboard",
+     "value": "minimal"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "cyberpunk dashboard",
+     "cyber dashboard"
+    ],
+    "ar": [
+     "عداد سايبر",
+     "سايبر بانك"
+    ],
+    "ckb": [
+     "داشبۆردی سایبەر"
+    ]
+   },
+   "do": [
+    {
+     "action": "dashboard",
+     "value": "cyber"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "analog dashboard",
+     "classic gauges",
+     "needles",
+     "make it look like a porsche"
+    ],
+    "ar": [
+     "العداد الكلاسيكي",
+     "عداد الابر"
+    ],
+    "ckb": [
+     "داشبۆردی کلاسیک",
+     "عەدادی دەرزی"
+    ]
+   },
+   "do": [
+    {
+     "action": "dashboard",
+     "value": "analog"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "karaoke",
+     "let's do karaoke",
+     "open karaoke"
+    ],
+    "ar": [
+     "كاريوكي",
+     "شغل الكاريوكي"
+    ],
+    "ckb": [
+     "کاریۆکی",
+     "کاریۆکی بکەرەوە"
+    ]
+   },
+   "do": [
+    {
+     "action": "open_app",
+     "value": "Karaoke"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "spotify",
+     "open spotify"
+    ],
+    "ar": [
+     "سبوتيفاي",
+     "افتح سبوتيفاي"
+    ],
+    "ckb": [
+     "سپۆتیفای"
+    ]
+   },
+   "do": [
+    {
+     "action": "open_app",
+     "value": "Spotify"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "youtube",
+     "open youtube"
+    ],
+    "ar": [
+     "يوتيوب",
+     "افتح يوتيوب",
+     "فتح يوتيوب"
+    ],
+    "ckb": [
+     "یوتیوب",
+     "یوتیوب بکەرەوە"
+    ]
+   },
+   "do": [
+    {
+     "action": "open_app",
+     "value": "YouTube"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "geforce now",
+     "open geforce now"
+    ],
+    "ar": [
+     "جيفورس ناو"
+    ],
+    "ckb": [
+     "جیفۆرس ناو"
+    ]
+   },
+   "do": [
+    {
+     "action": "open_app",
+     "value": "GeForce NOW"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "waze",
+     "open waze"
+    ],
+    "ar": [
+     "ويز",
+     "افتح ويز"
+    ],
+    "ckb": [
+     "وەیز"
+    ]
+   },
+   "do": [
+    {
+     "action": "open_app",
+     "value": "Waze"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "google maps",
+     "open maps"
+    ],
+    "ar": [
+     "خرائط كوكل",
+     "افتح الخرائط"
+    ],
+    "ckb": [
+     "نەخشەکان",
+     "گووگڵ ماپ"
+    ]
+   },
+   "do": [
+    {
+     "action": "open_app",
+     "value": "Google Maps"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "make it black and gold",
+     "gold style",
+     "black and gold"
+    ],
+    "ar": [
+     "خليها ذهبي",
+     "اسود وذهبي",
+     "الستايل الذهبي"
+    ],
+    "ckb": [
+     "ڕەش و زێڕ",
+     "شێوازی زێڕین",
+     "زێڕینی بکە"
+    ]
+   },
+   "do": [
+    {
+     "action": "home_style",
+     "value": "gold"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "future style",
+     "switch to the future style",
+     "blue style"
+    ],
+    "ar": [
+     "ستايل المستقبل",
+     "الستايل الازرق"
+    ],
+    "ckb": [
+     "شێوازی داهاتوو",
+     "شێوازی شین"
+    ]
+   },
+   "do": [
+    {
+     "action": "home_style",
+     "value": "future"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "photo style",
+     "show the photo style",
+     "scene style"
+    ],
+    "ar": [
+     "ستايل الصورة",
+     "خلي صورة"
+    ],
+    "ckb": [
+     "شێوازی وێنە",
+     "وێنەکە پیشان بدە"
+    ]
+   },
+   "do": [
+    {
+     "action": "home_style",
+     "value": "scene"
+    }
+   ]
+  },
+  {
+   "say": {
+    "en": [
+     "classic style",
+     "normal style",
+     "default style"
+    ],
+    "ar": [
+     "الستايل العادي",
+     "الستايل الكلاسيكي"
+    ],
+    "ckb": [
+     "شێوازی ئاسایی",
+     "شێوازی کلاسیک"
+    ]
+   },
+   "do": [
+    {
+     "action": "home_style",
+     "value": "classic"
     }
    ]
   }
